@@ -6,7 +6,7 @@
   "tailwind": {
     "config": "",
     "css": "css/tailwind.css",
-    "baseColor": "stone",
+    "baseColor": "slate",
     "cssVariables": true,
     "prefix": ""
   },
