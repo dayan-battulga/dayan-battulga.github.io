@@ -1,10 +1,10 @@
 import 'css/tailwind.css'
-import 'pliny/search/algolia.css'
+// import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
 
 import { Space_Grotesk } from 'next/font/google'
-import { Analytics, AnalyticsConfig } from 'pliny/analytics'
-import { SearchProvider, SearchConfig } from 'pliny/search'
+// import { Analytics, AnalyticsConfig } from 'pliny/analytics'
+// import { SearchProvider, SearchConfig } from 'pliny/search'
 import Header from '@/components/Header'
 import SectionContainer from '@/components/SectionContainer'
 import Footer from '@/components/Footer'
@@ -67,22 +67,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link
-        rel="apple-touch-icon"
-        sizes="76x76"
-        href={`${basePath}/static/favicons/apple-touch-icon.png`}
-      />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/image.png`} />
       <link
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`${basePath}/static/favicons/favicon-32x32.png`}
+        href={`${basePath}/static/favicons/favicon.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`${basePath}/static/favicons/favicon-16x16.png`}
+        href={`${basePath}/static/favicons/favicon.png`}
       />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
@@ -96,12 +92,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
       <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
         <ThemeProviders>
-          <Analytics analyticsConfig={siteMetadata.analytics as AnalyticsConfig} />
           <SectionContainer>
-            <SearchProvider searchConfig={siteMetadata.search as SearchConfig}>
-              <Header />
-              <main className="mb-auto">{children}</main>
-            </SearchProvider>
+            <Header />
+            <main className="mb-auto">{children}</main>
             <Footer />
           </SectionContainer>
         </ThemeProviders>
