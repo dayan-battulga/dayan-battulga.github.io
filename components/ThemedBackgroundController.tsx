@@ -34,7 +34,8 @@ const ThemedBackgroundController: React.FC = () => {
         className="fixed inset-0 -z-10 h-full w-full" // Ensure particles are behind content but above gradient
         quantity={100} // Default or make this configurable
         color={particleColor}
-        // Potentially adjust other particle props based on theme if desired
+        ease={80}
+        refresh
       />
     </>
   )

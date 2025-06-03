@@ -3925,7 +3925,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/react@npm:^18.3.1":
+"@types/react@npm:^18.2.0":
   version: 18.3.23
   resolution: "@types/react@npm:18.3.23"
   dependencies:
@@ -9589,6 +9589,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"next-themes@npm:^0.4.6":
+  version: 0.4.6
+  resolution: "next-themes@npm:0.4.6"
+  peerDependencies:
+    react: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+    react-dom: ^16.8 || ^17 || ^18 || ^19 || ^19.0.0-rc
+  checksum: 295256ee5689629e6578ff4f10f163257172085cac0a250f5f81eae5791fde984a0398be09b959a90c12cf72cf95e82ae11fad6fe13edc4e2d2a6ec2734be0cd
+  languageName: node
+  linkType: hard
+
 "next@npm:15.2.4":
   version: 15.2.4
   resolution: "next@npm:15.2.4"
@@ -10337,7 +10347,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-dom@npm:^18.3.1":
+"react-dom@npm:^18.2.0":
   version: 18.3.1
   resolution: "react-dom@npm:18.3.1"
   dependencies:
@@ -10367,7 +10377,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react@npm:^18.3.1":
+"react@npm:^18.2.0":
   version: 18.3.1
   resolution: "react@npm:18.3.1"
   dependencies:
@@ -11981,7 +11991,7 @@ __metadata:
     "@tailwindcss/postcss": ^4.0.5
     "@tailwindcss/typography": ^0.5.15
     "@types/mdx": ^2.0.12
-    "@types/react": ^18.3.1
+    "@types/react": ^18.2.0
     "@typescript-eslint/eslint-plugin": ^8.12.0
     "@typescript-eslint/parser": ^8.12.0
     body-scroll-lock: ^4.0.0-beta.0
@@ -11994,6 +12004,7 @@ __metadata:
     eslint-config-next: 15.2.4
     eslint-config-prettier: ^9.1.0
     eslint-plugin-prettier: ^5.2.0
+    framer-motion: ^12.15.0
     github-slugger: ^2.0.0
     globals: ^15.12.0
     gray-matter: ^4.0.2
@@ -12005,13 +12016,13 @@ __metadata:
     motion: ^12.15.0
     next: 15.2.4
     next-contentlayer2: 0.5.5
-    next-themes: ^0.3.0
+    next-themes: ^0.4.6
     pliny: 0.4.1
     postcss: ^8.4.24
     prettier: ^3.0.0
     prettier-plugin-tailwindcss: ^0.6.11
-    react: ^18.3.1
-    react-dom: ^18.3.1
+    react: ^18.2.0
+    react-dom: ^18.2.0
     reading-time: 1.5.0
     rehype-autolink-headings: ^7.1.0
     rehype-citation: ^2.3.0
@@ -12026,7 +12037,7 @@ __metadata:
     remark-math: ^6.0.0
     tailwind-merge: ^3.3.0
     tailwindcss: ^4.0.5
-    tw-animate-css: ^1.3.3
+    tw-animate-css: ^1.3.2
     typescript: ^5.1.3
     unist-util-visit: ^5.0.0
   languageName: unknown
@@ -12184,7 +12195,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tw-animate-css@npm:^1.3.3":
+"tw-animate-css@npm:^1.3.2":
   version: 1.3.3
   resolution: "tw-animate-css@npm:1.3.3"
   checksum: 0a8c6ed814c937ee59c69adfce4df42169dbffbef52f5930166977189a2d9bdd64ecf9b0a507a99c70431da1015a4c1f659792721b5745013cabb56babcdf632
@@ -12895,9 +12906,9 @@ __metadata:
   linkType: hard
 
 "zod@npm:^3.22.4":
-  version: 3.25.48
-  resolution: "zod@npm:3.25.48"
-  checksum: 01d87ee2dc25c7236f803703d232edfd97072a468ef72e9a597fd118f71ee257f83def6acb684c1077e4b600c43d3245345aa3d514efa3db3be26b0db9ebfea1
+  version: 3.25.49
+  resolution: "zod@npm:3.25.49"
+  checksum: 7432d7ef54fc803fea121b20930a9d528c54d244c8c6549447b75443a3587b94745c5add5ac8550c9a77e0c7cda3ec3d6aff83e33adfc1dc9d34a266856dace8
   languageName: node
   linkType: hard
 

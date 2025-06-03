@@ -49,7 +49,7 @@ const ThemeSwitch = () => {
       <button
         aria-label="Theme switcher"
         type="button"
-        className="flex h-10 w-10 items-center justify-center rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+        className="flex h-10 w-10 items-center justify-center rounded-lg p-2"
         disabled
       >
         <Blank />
@@ -61,7 +61,7 @@ const ThemeSwitch = () => {
     <button
       aria-label="Theme switcher"
       type="button"
-      className="flex h-10 w-10 items-center justify-center rounded-lg p-2 hover:bg-gray-200 dark:hover:bg-gray-700"
+      className="flex h-10 w-10 items-center justify-center rounded-lg p-2"
       onClick={toggleTheme}
     >
       {resolvedTheme === 'dark' ? (
