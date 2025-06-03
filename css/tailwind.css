@@ -12,11 +12,13 @@
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Colors */
-  --color-primary-100: ;
-  --color-primary-200: #e1eaff;
+  --color-primary-100: rgb(139, 168, 136); /* matcha green */
+  --color-primary-200: #e1eaff; /* blue */
 
   --color-gray-100: rgb(115 115 115);
   --color-gray-200: rgb(23, 23, 23);
+  --color-light-gray-100: rgb(188, 188, 188);
+  --color-light-gray-200: rgb(212, 212, 212);
 
   /* Line heights */
   --line-height-11: 2.75rem;
