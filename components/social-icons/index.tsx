@@ -1,31 +1,9 @@
-import {
-  Mail,
-  Github,
-  Facebook,
-  Youtube,
-  Linkedin,
-  Twitter,
-  X,
-  Mastodon,
-  Threads,
-  Instagram,
-  Medium,
-  Bluesky,
-} from './icons'
+import { Mail, Github, Linkedin } from './icons'
 
 const components = {
   mail: Mail,
   github: Github,
-  facebook: Facebook,
-  youtube: Youtube,
   linkedin: Linkedin,
-  twitter: Twitter,
-  x: X,
-  mastodon: Mastodon,
-  threads: Threads,
-  instagram: Instagram,
-  medium: Medium,
-  bluesky: Bluesky,
 }
 
 type SocialIconProps = {
@@ -51,9 +29,7 @@ const SocialIcon = ({ kind, href, size = 8 }: SocialIconProps) => {
       href={href}
     >
       <span className="sr-only">{kind}</span>
-      <SocialSvg
-        className={`hover:text-primary-500 dark:hover:text-primary-400 fill-current text-gray-700 dark:text-gray-200 h-${size} w-${size}`}
-      />
+      <SocialSvg className={`fill-current text-gray-100 dark:text-white h-${size} w-${size}`} />
     </a>
   )
 }
