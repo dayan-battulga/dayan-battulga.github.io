@@ -3,11 +3,9 @@ const siteMetadata = {
   title: 'DB',
   author: 'Dayan Battulga',
   headerTitle: 'Dayan Battulga',
-  description: 'hmmm',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app', //CHANGE
-  siteRepo: 'https://github.com/timlrx/tailwind-nextjs-starter-blog', //CHANGE
   socialBanner: `${process.env.BASE_PATH || ''}/static/images/twitter-card.png`, //CHANGE
   email: 'dayanbattulga8@gmail.com',
   github: 'https://github.com/dayan-battulga',

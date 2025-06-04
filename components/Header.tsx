@@ -44,7 +44,7 @@ const Header = () => {
         </Link>
         <div className="flex items-center space-x-4 leading-5 sm:-mr-6 sm:space-x-6">
           <div
-            className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto pr-1 sm:flex md:max-w-72 lg:max-w-96"
+            className="no-scrollbar hidden max-w-40 items-center gap-x-4 overflow-x-auto px-1 sm:flex md:max-w-72 lg:max-w-96"
             onMouseLeave={() => setHoveredPath(null)}
           >
             <LayoutGroup>
@@ -75,7 +75,7 @@ const Header = () => {
                           className="bg-light-gray-100/70 dark:bg-light-gray-200/50 absolute inset-0 -z-10 rounded-md"
                           layoutId="activeLinkBackground"
                           animate={{ scale: isHovered ? 1.1 : 1 }}
-                          transition={{ type: 'spring', stiffness: 350, damping: 30 }}
+                          transition={{ type: 'spring', stiffness: 400, damping: 30 }}
                           aria-hidden="true"
                         />
                       )}

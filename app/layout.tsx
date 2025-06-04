@@ -1,6 +1,7 @@
 import 'css/tailwind.css'
 // import 'pliny/search/algolia.css'
 import 'remark-github-blockquote-alert/alert.css'
+import 'maplibre-gl/dist/maplibre-gl.css'
 
 import { Space_Grotesk } from 'next/font/google'
 // import { Analytics, AnalyticsConfig } from 'pliny/analytics'
