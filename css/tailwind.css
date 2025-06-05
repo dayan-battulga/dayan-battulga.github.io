@@ -20,11 +20,7 @@
   --color-light-gray-100: rgb(188, 188, 188);
   --color-light-gray-200: rgb(212, 212, 212);
 
-  /* Line heights */
-  --line-height-11: 2.75rem;
-  --line-height-12: 3rem;
-  --line-height-13: 3.25rem;
-  --line-height-14: 3.5rem;
+  --color-dark-blue: rgb(5, 87, 157);
 
   /* Z-index values */
   --z-60: 60;
@@ -177,11 +173,257 @@ html::-webkit-scrollbar {
     opacity: 0.6;
   }
   80% {
-    transform: translate(-50%, -50%) scale(3); /* Expand to 3 times the size */
+    transform: translate(-50%, -50%) scale(10); /* Expand to 3 times the size */
     opacity: 0; /* Fade out */
   }
   100% {
-    transform: translate(-50%, -50%) scale(3);
+    transform: translate(-50%, -50%) scale(10);
     opacity: 0;
+  }
+}
+
+@keyframes ping {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  75%,
+  to {
+    opacity: 0;
+    transform: scale(2.5);
+  }
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes cloud {
+  0% {
+    transform: translate(300px, -80px);
+  }
+  to {
+    transform: translate(-50px, -80px);
+  }
+}
+
+@keyframes plane {
+  0% {
+    transform: translate(0) rotate(-65deg);
+  }
+  to {
+    transform: translate(-700px, -300px) rotate(-65deg);
+  }
+}
+
+@keyframes plane-shadow {
+  0% {
+    transform: translate(-30px, 30px) rotate(-65deg);
+  }
+  to {
+    transform: translate(-730px, -270px) rotate(-65deg);
+  }
+}
+
+@keyframes highlight {
+  0% {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes rainbow {
+  0% {
+    background-position: 0;
+  }
+  to {
+    background-position: 200%;
+  }
+}
+
+@keyframes wave {
+  0%,
+  to {
+    transform: rotate(0);
+  }
+  50% {
+    transform: rotate(20deg);
+  }
+}
+
+:root {
+  --aura-rainbow-offset: -20%;
+  --aura-animation-duration: 12s;
+}
+
+.aura-container {
+  pointer-events: none;
+  top: 0;
+  height: 18rem; /* calc(var(--spacing)*72) */
+  width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .aura-container {
+    height: 20rem; /* calc(var(--spacing)*80) */
+  }
+}
+
+@media (min-width: 64rem) {
+  .aura-container {
+    height: 24rem; /* calc(var(--spacing)*96) */
+  }
+}
+
+.aura-rays-wrapper {
+  inset: 0;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+.aura-wrapper {
+  z-index: -1;
+  opacity: 1;
+  width: 300%;
+  height: 100%;
+  position: absolute;
+  left: -100%;
+  overflow: hidden;
+}
+
+@media (min-width: 48rem) {
+  .aura-wrapper {
+    width: 400%;
+    left: -150%;
+  }
+}
+
+.dark .aura-wrapper {
+  opacity: 1;
+}
+
+.aura-rainbow-element {
+  aspect-ratio: 1;
+  width: 120%;
+  position: absolute;
+  left: -10%;
+}
+
+.aura-content {
+  height: 100%;
+  position: relative;
+}
+
+.animate-rainbow {
+  animation: rainbow var(--speed, 2s) infinite linear;
+}
+
+.aura-rays {
+  -webkit-mask-image: linear-gradient(
+      45deg,
+      transparent 35%,
+      rgba(0, 0, 0, 0.9) 40%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.09) 50%,
+      transparent 55%,
+      rgba(0, 0, 0, 0.9) 60%,
+      transparent 65%
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.05), transparent 75%);
+  mask-image: linear-gradient(
+      45deg,
+      transparent 35%,
+      rgba(0, 0, 0, 0.9) 40%,
+      transparent 45%,
+      rgba(0, 0, 0, 0.09) 50%,
+      transparent 55%,
+      rgba(0, 0, 0, 0.9) 60%,
+      transparent 65%
+    ),
+    linear-gradient(rgba(0, 0, 0, 0.05), transparent 75%);
+  -webkit-mask-position:
+    50% 0,
+    0 0;
+  mask-position:
+    50% 0,
+    0 0;
+  -webkit-mask-size: 200%, auto;
+  mask-size: 200%, auto;
+}
+
+@media (min-width: 48rem) {
+  .aura-rays {
+    -webkit-mask-size: 150%, auto;
+    mask-size: 150%, auto;
+  }
+}
+
+.aura {
+  -webkit-mask-image: radial-gradient(farthest-side at 50% -100%, black, transparent 100%);
+  mask-image: radial-gradient(farthest-side at 50% -100%, black, transparent 100%);
+}
+
+@keyframes aura-rainbow-spin {
+  0% {
+    transform: translateY(var(--aura-rainbow-offset)) rotate(0deg);
+  }
+  to {
+    transform: translateY(var(--aura-rainbow-offset)) rotate(-360deg);
+  }
+}
+
+.aura-rainbow {
+  animation: aura-rainbow-spin var(--aura-animation-duration) linear infinite;
+  background: conic-gradient(
+    #fc6969 0,
+    #f96ab2 12.5%,
+    #a27bfb 25%,
+    #639dfa 37.5%,
+    #49c3fc 50%,
+    #2dbcab 62.5%,
+    #90cf32 75%,
+    #f8ac29 87.5%,
+    #fc6969 100%
+  );
+}
+
+.dark .aura-rainbow {
+  filter: saturate(0.8) brightness(1.2);
+  background: conic-gradient(
+    #2fc265 0,
+    #2aa272 20%,
+    #369883 40%,
+    #6e6bd0 60%,
+    #369883 80%,
+    #2aa272 90%,
+    #2fc265 100%
+  );
+}
+
+@theme inline {
+  --animate-orbit: orbit calc(var(--duration)*1s) linear infinite;
+  @keyframes orbit {
+  0% {
+    transform: rotate(calc(var(--angle) * 1deg)) translateY(calc(var(--radius) * 1px)) rotate(calc(var(--angle) * -1deg));
+    }
+  100% {
+    transform: rotate(calc(var(--angle) * 1deg + 360deg)) translateY(calc(var(--radius) * 1px)) rotate(calc((var(--angle) * -1deg) - 360deg));
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
   }
 }
