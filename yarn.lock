@@ -7189,7 +7189,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"framer-motion@npm:^12.15.0":
+"framer-motion@npm:^12.15.0, framer-motion@npm:^12.16.0":
   version: 12.16.0
   resolution: "framer-motion@npm:12.16.0"
   dependencies:
@@ -10157,11 +10157,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"motion@npm:^12.15.0":
-  version: 12.15.0
-  resolution: "motion@npm:12.15.0"
+"motion@npm:^12.16.0":
+  version: 12.16.0
+  resolution: "motion@npm:12.16.0"
   dependencies:
-    framer-motion: ^12.15.0
+    framer-motion: ^12.16.0
     tslib: ^2.4.0
   peerDependencies:
     "@emotion/is-prop-valid": "*"
@@ -10174,7 +10174,7 @@ __metadata:
       optional: true
     react-dom:
       optional: true
-  checksum: 27f792731653fa2389e0d3a208b25745770556321cdb333c964655aa57e90c1b1e3225ec8907bc0d53a5284b771f2b07f733c5dcdd83ed74973ff78e3ebf2a16
+  checksum: 810061ab4961adc9ac8f7bd1f97271d09cd91d1ce7131b015a91c13b7501a2805af99ea6eeca13c64dcdf7ac557d0aa9cd99de428fcf2586c78cb7a53f4cd8b4
   languageName: node
   linkType: hard
 
@@ -12887,7 +12887,7 @@ __metadata:
     lint-staged: ^13.0.0
     lucide-react: ^0.511.0
     maplibre-gl: ^5.6.0
-    motion: ^12.15.0
+    motion: ^12.16.0
     next: 15.2.4
     next-contentlayer2: 0.5.5
     next-themes: ^0.4.6

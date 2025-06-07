@@ -6,17 +6,27 @@ import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import MapComponent from '@/components/MapComponent'
 import HeroSection from '@/components/HeroSection'
+import SkillsSection from '@/components/SkillsSection'
 
 export default function Home({ posts }) {
   return (
     <div className="flex flex-col">
       <div className="mb-4 flex h-full w-full flex-col pt-4">
-        <div className="h-[200px] w-full overflow-hidden rounded-4xl md:h-[200px] lg:h-[300px]">
-          <MapComponent />
-        </div>
-        <div className="mb-4 flex h-[225px] w-full flex-col gap-4">
-          <HeroSection />
-        </div>
+        <BlurFade delay={0.2}>
+          <div className="h-[200px] w-full overflow-hidden rounded-4xl md:h-[250px]">
+            <MapComponent />
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.3}>
+          <div className="mb-4 flex w-full flex-col gap-4 sm:h-[300px] md:h-[225px]">
+            <HeroSection />
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.4}>
+          <div className="mb-4 flex w-full">
+            <SkillsSection />
+          </div>
+        </BlurFade>
 
         {/* <ul className="divide-y divide-gray-200 dark:divide-gray-700">
           {!posts.length && 'No posts found.'}
