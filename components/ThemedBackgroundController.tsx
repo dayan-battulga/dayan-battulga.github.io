@@ -60,11 +60,11 @@ const ThemedBackgroundController: React.FC = () => {
         </div>
       </div>
       <Particles
-        className="fixed inset-0 -z-20 h-full w-full" // Ensure particles are behind aura
+        className="fixed inset-0 -z-20 h-full w-full" // Ensure particles are between aura and content
         quantity={particleQuantity}
         color={particleColor}
         ease={50}
-        size={1.5}
+        size={1}
         staticity={50}
         refresh={true}
         vy={0.1}

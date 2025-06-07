@@ -5,20 +5,17 @@ import { formatDate } from 'pliny/utils/formatDate'
 import NewsletterForm from 'pliny/ui/NewsletterForm'
 import { BlurFade } from '@/components/magicui/blur-fade'
 import MapComponent from '@/components/MapComponent'
-import HeroSection from '@/components/Hero'
+import HeroSection from '@/components/HeroSection'
 
 export default function Home({ posts }) {
   return (
-    <>
-      <div className="flex h-full w-full flex-col gap-4 pt-4">
-        <div className="h-[200px] w-full overflow-hidden rounded-4xl md:h-[300px] lg:h-[300px]">
+    <div className="flex flex-col">
+      <div className="mb-4 flex h-full w-full flex-col pt-4">
+        <div className="h-[200px] w-full overflow-hidden rounded-4xl md:h-[200px] lg:h-[300px]">
           <MapComponent />
         </div>
-        <HeroSection />
-        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
-          <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-white">
-            Hi! I'm Dayan.
-          </h1>
+        <div className="mb-4 flex h-[225px] w-full flex-col gap-4">
+          <HeroSection />
         </div>
 
         {/* <ul className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -89,6 +86,6 @@ export default function Home({ posts }) {
           <NewsletterForm />
         </div>
       )} */}
-    </>
+    </div>
   )
 }

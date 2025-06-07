@@ -1,17 +1,16 @@
-import { cn } from "@/components/lib/utils";
-import React from "react";
+import { cn } from '@/components/lib/utils'
+import React from 'react'
 
-export interface OrbitingCirclesProps
-  extends React.HTMLAttributes<HTMLDivElement> {
-  className?: string;
-  children?: React.ReactNode;
-  reverse?: boolean;
-  duration?: number;
-  delay?: number;
-  radius?: number;
-  path?: boolean;
-  iconSize?: number;
-  speed?: number;
+export interface OrbitingCirclesProps extends React.HTMLAttributes<HTMLDivElement> {
+  className?: string
+  children?: React.ReactNode
+  reverse?: boolean
+  duration?: number
+  delay?: number
+  radius?: number
+  path?: boolean
+  iconSize?: number
+  speed?: number
 }
 
 export function OrbitingCircles({
@@ -25,7 +24,7 @@ export function OrbitingCircles({
   speed = 1,
   ...props
 }: OrbitingCirclesProps) {
-  const calculatedDuration = duration / speed;
+  const calculatedDuration = duration / speed
   return (
     <>
       {path && (
@@ -44,28 +43,28 @@ export function OrbitingCircles({
         </svg>
       )}
       {React.Children.map(children, (child, index) => {
-        const angle = (360 / React.Children.count(children)) * index;
+        const angle = (360 / React.Children.count(children)) * index
         return (
           <div
             style={
               {
-                "--duration": calculatedDuration,
-                "--radius": radius,
-                "--angle": angle,
-                "--icon-size": `${iconSize}px`,
+                '--duration': calculatedDuration,
+                '--radius': radius,
+                '--angle': angle,
+                '--icon-size': `${iconSize}px`,
               } as React.CSSProperties
             }
             className={cn(
-              `absolute flex size-[var(--icon-size)] transform-gpu animate-orbit items-center justify-center rounded-full`,
-              { "[animation-direction:reverse]": reverse },
-              className,
+              `animate-orbit absolute top-1/2 left-1/2 flex size-[var(--icon-size)] -translate-x-1/2 -translate-y-1/2 transform-gpu items-center justify-center rounded-full`,
+              { '[animation-direction:reverse]': reverse },
+              className
             )}
             {...props}
           >
             {child}
           </div>
-        );
+        )
       })}
     </>
-  );
+  )
 }

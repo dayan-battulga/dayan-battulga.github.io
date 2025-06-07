@@ -53,11 +53,6 @@ export const metadata: Metadata = {
       'max-snippet': -1,
     },
   },
-  twitter: {
-    title: siteMetadata.title,
-    card: 'summary_large_image',
-    images: [siteMetadata.socialBanner],
-  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -69,19 +64,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/favicons/image.png`} />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href={`${basePath}/static/favicons/favicon.png`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`${basePath}/static/favicons/favicon.png`}
-      />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/logo.png`} />
+      <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/logo.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/logo.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"

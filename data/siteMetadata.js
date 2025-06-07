@@ -3,6 +3,7 @@ const siteMetadata = {
   title: 'DB',
   author: 'Dayan Battulga',
   headerTitle: 'Dayan Battulga',
+  description: 'I like to code and build things.',
   language: 'en-us',
   theme: 'system', // system, dark or light
   siteUrl: 'https://tailwind-nextjs-starter-blog.vercel.app', //CHANGE
