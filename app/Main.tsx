@@ -18,7 +18,7 @@ export default function Home({ posts }) {
           </div>
         </BlurFade>
         <BlurFade delay={0.3}>
-          <div className="mb-4 flex w-full flex-col gap-4 sm:h-[300px] md:h-[225px]">
+          <div className="mt-4 mb-4 flex w-full flex-col gap-4 sm:mt-6 sm:h-[225px]">
             <HeroSection />
           </div>
         </BlurFade>

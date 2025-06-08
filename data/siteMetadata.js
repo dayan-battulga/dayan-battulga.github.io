@@ -13,7 +13,7 @@ const siteMetadata = {
   linkedin: 'https://www.linkedin.com/in/dayan-battulga',
   locale: 'en-US',
   // set to true if you want a navbar fixed to the top
-  stickyNav: true,
+  stickyNav: false,
 }
 
 module.exports = siteMetadata

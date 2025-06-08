@@ -22,10 +22,10 @@ export default function HeroSection() {
         setImageWidth(80)
         setImageHeight(80)
       } else {
-        setRadius1(95)
-        setRadius2(70)
-        setImageWidth(100)
-        setImageHeight(100)
+        setRadius1(120)
+        setRadius2(100)
+        setImageWidth(150)
+        setImageHeight(150)
       }
     }
 
@@ -38,29 +38,27 @@ export default function HeroSection() {
   }, [])
 
   return (
-    <div className="flex h-full w-full flex-row items-center sm:flex-row">
-      <div className="relative flex h-[225px] w-full items-center justify-center overflow-hidden md:h-[500px] md:w-1/2">
+    <div className="flex h-full w-full flex-col items-center text-center sm:flex-row sm:items-center sm:text-left">
+      <div className="relative flex h-[225px] w-full items-center justify-center overflow-hidden sm:w-1/2">
         <Image
           src="/avatar.png"
           alt="Dayan Battulga"
-          width={imageWidth}
-          height={imageHeight}
+          width={150}
+          height={150}
           className="absolute rounded-full border-2 border-gray-300 dark:border-gray-700"
         />
-        <OrbitingCircles radius={radius1} iconSize={20}>
+        <OrbitingCircles radius={100} iconSize={20} reverse>
+          <Volleyball />
+          <ShoppingCart />
+          <BookMarked />
           <Cat />
           <Hamburger />
           <Turtle />
           <Youtube />
         </OrbitingCircles>
-        <OrbitingCircles radius={radius2} iconSize={20} reverse>
-          <Volleyball />
-          <ShoppingCart />
-          <BookMarked />
-        </OrbitingCircles>
       </div>
 
-      <div className="w-full md:w-1/2">
+      <div className="w-full sm:w-1/2">
         <h1 className="text-4xl font-bold tracking-tight">{siteMetadata.author}</h1>
         <p className="text-muted-foreground mt-4 text-lg">{siteMetadata.description}</p>
       </div>
