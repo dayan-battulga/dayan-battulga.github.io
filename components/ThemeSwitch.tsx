@@ -65,11 +65,11 @@ const ThemeSwitch = () => {
       onClick={toggleTheme}
     >
       {resolvedTheme === 'dark' ? (
-        <BlurFade key="moon-icon" delay={0.1} inView>
+        <BlurFade key="moon-icon" delay={0.1}>
           <Moon />
         </BlurFade>
       ) : (
-        <BlurFade key="sun-icon" delay={0.1} inView>
+        <BlurFade key="sun-icon" delay={0.1}>
           <Sun />
         </BlurFade>
       )}

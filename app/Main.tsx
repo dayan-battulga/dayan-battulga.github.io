@@ -7,6 +7,9 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 import MapComponent from '@/components/MapComponent'
 import HeroSection from '@/components/HeroSection'
 import SkillsSection from '@/components/SkillsSection'
+import UISection from '@/components/UISection'
+import ProjectsSection from '@/components/ProjectsSection'
+import BlogSection from '@/components/BlogSection'
 
 export default function Home({ posts }) {
   return (
@@ -18,13 +21,28 @@ export default function Home({ posts }) {
           </div>
         </BlurFade>
         <BlurFade delay={0.3}>
-          <div className="mt-4 mb-4 flex w-full flex-col gap-4 sm:mt-6 sm:h-[225px]">
+          <div className="mt-4 mb-4 flex w-full flex-col gap-4 sm:mt-6 sm:mb-6 sm:h-[225px]">
             <HeroSection />
           </div>
         </BlurFade>
         <BlurFade delay={0.4}>
-          <div className="mb-4 flex w-full">
+          <div className="mt-4 mb-4 flex w-full">
             <SkillsSection />
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.5}>
+          <div className="mt-16 mb-4 flex w-full">
+            <UISection />
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.6}>
+          <div className="mt-16 mb-4 flex w-full">
+            <ProjectsSection />
+          </div>
+        </BlurFade>
+        <BlurFade delay={0.7}>
+          <div className="mt-16 mb-4 flex w-full">
+            <BlogSection />
           </div>
         </BlurFade>
 

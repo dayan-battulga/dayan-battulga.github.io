@@ -22,12 +22,7 @@ const Header = () => {
 
   return (
     <header className={headerClass}>
-      <BlurFade
-        key="nav-bar"
-        delay={0.1}
-        inView
-        className="flex w-full items-center justify-between"
-      >
+      <BlurFade key="nav-bar" delay={0.1} className="flex w-full items-center justify-between">
         <Link href="/" aria-label={siteMetadata.headerTitle}>
           <div className="flex items-center justify-between text-gray-200 dark:text-white">
             {typeof siteMetadata.headerTitle === 'string' ? (

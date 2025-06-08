@@ -6,7 +6,7 @@ import { BlurFade } from './magicui/blur-fade'
 export default function Footer() {
   return (
     <footer>
-      <BlurFade key="footer" delay={0.1} inView>
+      <BlurFade key="footer" delay={0.8}>
         <div className="mt-16 mb-10 flex flex-col items-center justify-center space-y-4 sm:flex-row sm:items-center sm:justify-between sm:space-y-0">
           <div className="mb-3 flex space-x-6 text-gray-200 sm:mb-0 dark:text-white">
             <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={7} />
