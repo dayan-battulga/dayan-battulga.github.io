@@ -5,17 +5,24 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 
 export const metadata = genPageMetadata({ title: 'Projects' })
 
+const cardColors = [
+  'from-sky-200 dark:from-sky-800',
+  'from-violet-200 dark:from-violet-800',
+  'from-rose-200 dark:from-rose-800',
+  'from-amber-200 dark:from-amber-800',
+]
+
 export default function Projects() {
   return (
     <>
       <div className="divide-y divide-gray-200 dark:divide-gray-700">
-        <BlurFade delay={0.2}>
-          <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+        <div className="space-y-2 pt-6 pb-8 md:space-y-5">
+          <BlurFade delay={0.2}>
             <h1 className="text-3xl leading-9 font-extrabold tracking-tight text-gray-900 sm:text-4xl sm:leading-10 md:text-6xl md:leading-14 dark:text-white">
               Projects
             </h1>
-          </div>
-        </BlurFade>
+          </BlurFade>
+        </div>
         <div className="container py-12">
           <div className="-m-4">
             {projectsData.map((d, index) => (
@@ -26,6 +33,7 @@ export default function Projects() {
                   imgSrc={d.imgSrc}
                   href={d.href}
                   source={d.source}
+                  color={cardColors[index % cardColors.length]}
                 />
               </BlurFade>
             ))}

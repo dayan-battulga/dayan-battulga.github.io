@@ -6,7 +6,7 @@ import Link from './Link'
 import { motion } from 'framer-motion'
 import { Github, Link as LinkIcon } from 'lucide-react'
 
-const Card = ({ title, description, imgSrc, href, source }) => {
+const Card = ({ title, description, imgSrc, href, source, color }) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -17,7 +17,7 @@ const Card = ({ title, description, imgSrc, href, source }) => {
     >
       <div
         className={`dark:from-dark-gray-label h-full transform overflow-hidden rounded-md bg-gradient-to-b to-white transition-all duration-200 hover:shadow-2xl dark:to-gray-950 ${
-          isHovered ? 'from-sky-200 dark:from-sky-800' : 'dark:from-dark-gray-label from-[#eeeeee]'
+          isHovered ? color : 'dark:from-dark-gray-label from-[#eeeeee]'
         }`}
       >
         <motion.div
