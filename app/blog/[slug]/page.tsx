@@ -1,15 +1,14 @@
 import 'css/prism.css'
-import 'katex/dist/katex.css'
+import 'katex/dist/katex.min.css'
 
-import PageTitle from '@/components/PageTitle'
 import { components } from '@/components/MDXComponents'
 import { MDXLayoutRenderer } from 'pliny/mdx-components'
-import { sortPosts, coreContent, allCoreContent } from 'pliny/utils/contentlayer'
-import { allBlogs, allAuthors } from 'contentlayer/generated'
-import type { Authors, Blog } from 'contentlayer/generated'
-import PostSimple from '@/layouts/PostSimple'
-import PostLayout from '@/layouts/PostLayout'
-import PostBanner from '@/layouts/PostBanner'
+import { sortPosts, allCoreContent, coreContent } from 'pliny/utils/contentlayer'
+import { allBlogs } from 'contentlayer/generated'
+import type { Blog } from 'contentlayer/generated'
+import PostSimple from '@/components/layouts/PostSimple'
+import PostLayout from '@/components/layouts/PostLayout'
+import PostBanner from '@/components/layouts/PostBanner'
 import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
@@ -21,24 +20,19 @@ const layouts = {
   PostBanner,
 }
 
-export async function generateMetadata(props: {
-  params: Promise<{ slug: string[] }>
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string }
 }): Promise<Metadata | undefined> {
-  const params = await props.params
-  const slug = decodeURI(params.slug.join('/'))
+  const slug = decodeURI(params.slug)
   const post = allBlogs.find((p) => p.slug === slug)
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
   if (!post) {
     return
   }
 
   const publishedAt = new Date(post.date).toISOString()
-  const modifiedAt = new Date(post.lastmod || post.date).toISOString()
-  const authors = authorDetails.map((author) => author.name)
+  const modifiedAt = new Date(post.date).toISOString()
   let imageList = [siteMetadata.socialBanner]
   if (post.images) {
     imageList = typeof post.images === 'string' ? [post.images] : post.images
@@ -62,7 +56,7 @@ export async function generateMetadata(props: {
       modifiedTime: modifiedAt,
       url: './',
       images: ogImages,
-      authors: authors.length > 0 ? authors : [siteMetadata.author],
+      authors: [siteMetadata.author],
     },
     twitter: {
       card: 'summary_large_image',
@@ -74,12 +68,11 @@ export async function generateMetadata(props: {
 }
 
 export const generateStaticParams = async () => {
-  return allBlogs.map((p) => ({ slug: p.slug.split('/').map((name) => decodeURI(name)) }))
+  return allBlogs.map((p) => ({ slug: p.slug }))
 }
 
-export default async function Page(props: { params: Promise<{ slug: string[] }> }) {
-  const params = await props.params
-  const slug = decodeURI(params.slug.join('/'))
+export default async function Page({ params }: { params: { slug: string } }) {
+  const slug = decodeURI(params.slug)
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
   const postIndex = sortedCoreContents.findIndex((p) => p.slug === slug)
@@ -90,19 +83,14 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
   const prev = sortedCoreContents[postIndex + 1]
   const next = sortedCoreContents[postIndex - 1]
   const post = allBlogs.find((p) => p.slug === slug) as Blog
-  const authorList = post?.authors || ['default']
-  const authorDetails = authorList.map((author) => {
-    const authorResults = allAuthors.find((p) => p.slug === author)
-    return coreContent(authorResults as Authors)
-  })
   const mainContent = coreContent(post)
   const jsonLd = post.structuredData
-  jsonLd['author'] = authorDetails.map((author) => {
-    return {
+  jsonLd['author'] = [
+    {
       '@type': 'Person',
-      name: author.name,
-    }
-  })
+      name: siteMetadata.author,
+    },
+  ]
 
   const Layout = layouts[post.layout || defaultLayout]
 
@@ -112,7 +100,7 @@ export default async function Page(props: { params: Promise<{ slug: string[] }> 
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      <Layout content={mainContent} authorDetails={authorDetails} next={next} prev={prev}>
+      <Layout content={mainContent}>
         <MDXLayoutRenderer code={post.body.code} components={components} toc={post.toc} />
       </Layout>
     </>

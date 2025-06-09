@@ -67,7 +67,7 @@ const Header = () => {
                       </Link>
                       {(isHovered || (isActive && !hoveredPath)) && (
                         <motion.div
-                          className="bg-light-gray-100/70 dark:bg-light-gray-200/50 absolute inset-0 -z-10 rounded-md"
+                          className="bg-light-gray-100/70 absolute inset-0 -z-10 rounded-md dark:bg-gray-100/30"
                           layoutId="activeLinkBackground"
                           animate={{ scale: isHovered ? 1.1 : 1 }}
                           transition={{ type: 'spring', stiffness: 400, damping: 30 }}

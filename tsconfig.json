@@ -17,10 +17,11 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@/app/*": ["app/*"],
       "@/components/*": ["components/*"],
-      "@/data/*": ["data/*"],
-      "@/layouts/*": ["layouts/*"],
+      "@/components/layouts/*": ["components/layouts/*"],
       "@/css/*": ["css/*"],
+      "@/data/*": ["data/*"],
       "contentlayer/generated": ["./.contentlayer/generated"],
       "pliny/*": ["node_modules/pliny/*"]
     },

@@ -1,56 +1,73 @@
+'use client'
+
+import { useState } from 'react'
 import Image from './Image'
 import Link from './Link'
+import { motion } from 'framer-motion'
+import { Github, Link as LinkIcon } from 'lucide-react'
 
-const Card = ({ title, description, imgSrc, href }) => (
-  <div className="md max-w-[544px] p-4 md:w-1/2">
+const Card = ({ title, description, imgSrc, href, source }) => {
+  const [isHovered, setIsHovered] = useState(false)
+
+  return (
     <div
-      className={`${
-        imgSrc && 'h-full'
-      } overflow-hidden rounded-md border-2 border-gray-200/60 dark:border-gray-700/60`}
+      className="md w-full p-4"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
-      {imgSrc &&
-        (href ? (
-          <Link href={href} aria-label={`Link to ${title}`}>
-            <Image
-              alt={title}
-              src={imgSrc}
-              className="object-cover object-center md:h-36 lg:h-48"
-              width={544}
-              height={306}
-            />
-          </Link>
-        ) : (
-          <Image
-            alt={title}
-            src={imgSrc}
-            className="object-cover object-center md:h-36 lg:h-48"
-            width={544}
-            height={306}
-          />
-        ))}
-      <div className="p-6">
-        <h2 className="mb-3 text-2xl leading-8 font-bold tracking-tight">
-          {href ? (
-            <Link href={href} aria-label={`Link to ${title}`}>
-              {title}
-            </Link>
-          ) : (
-            title
+      <div
+        className={`dark:from-dark-gray-label h-full transform overflow-hidden rounded-md bg-gradient-to-b to-white transition-all duration-200 hover:shadow-2xl dark:to-gray-950 ${
+          isHovered ? 'from-sky-200 dark:from-sky-800' : 'dark:from-dark-gray-label from-[#eeeeee]'
+        }`}
+      >
+        <motion.div
+          animate={{ y: isHovered ? -12 : 0 }}
+          transition={{ duration: 0.3, ease: 'easeInOut' }}
+          className="relative"
+        >
+          {imgSrc && (
+            <div className="relative m-5">
+              <Image
+                alt={title}
+                src={imgSrc}
+                className="object-cover object-center"
+                width={0}
+                height={0}
+                sizes="100vw"
+                style={{ width: '100%', height: 'auto' }}
+              />
+            </div>
           )}
-        </h2>
-        <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
-        {href && (
-          <Link
-            href={href}
-            className="text-primary-500 hover:text-primary-600 dark:hover:text-primary-400 text-base leading-6 font-medium"
-            aria-label={`Link to ${title}`}
-          >
-            Learn more &rarr;
-          </Link>
-        )}
+        </motion.div>
+        <div className="relative z-10 -mt-16 bg-white p-6 text-left dark:bg-gray-950">
+          <h2 className="mb-3 text-2xl leading-8 font-bold tracking-tight text-black dark:text-white">
+            {title}
+          </h2>
+          <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
+          <div className="flex space-x-4">
+            {source && (
+              <Link
+                href={source}
+                className="hover:bg-gray-label border-light-gray-100 flex items-center rounded-lg border-1 bg-white px-4 py-2 text-sm font-medium text-black shadow-md transition-colors dark:bg-black dark:text-white dark:hover:bg-gray-800"
+              >
+                <Github className="mr-2 h-4 w-4" />
+                Source
+              </Link>
+            )}
+            {href && (
+              <Link
+                href={href}
+                className="dark:hover:bg-gray-label flex items-center rounded-lg bg-black px-4 py-2 text-sm font-medium text-white shadow-md transition-colors hover:bg-gray-800 dark:bg-white dark:text-black"
+              >
+                <LinkIcon className="mr-2 h-4 w-4" />
+                Visit
+              </Link>
+            )}
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default Card
