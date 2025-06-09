@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 @import 'tw-animate-css';
+@import '@liveblocks/react-ui/styles.css';
 @plugin "@tailwindcss/forms";
 @plugin '@tailwindcss/typography';
 @source '../node_modules/pliny';
@@ -336,6 +337,7 @@ html::-webkit-scrollbar {
 :root {
   --aura-rainbow-offset: -20%;
   --aura-animation-duration: 12s;
+  --aura-background-z-index: -10;
 }
 
 .aura-container {
@@ -367,7 +369,7 @@ html::-webkit-scrollbar {
 }
 
 .aura-wrapper {
-  z-index: -1;
+  z-index: var(--aura-background-z-index);
   opacity: 1;
   width: 300%;
   height: 100%;
@@ -459,6 +461,7 @@ html::-webkit-scrollbar {
 
 .aura-rainbow {
   animation: aura-rainbow-spin var(--aura-animation-duration) linear infinite;
+  filter: saturate(3);
   background: conic-gradient(
     #fc6969 0,
     #f96ab2 12.5%,
@@ -504,6 +507,24 @@ html::-webkit-scrollbar {
     }
     to {
       background-position: -200% 0;
+    }
+  }
+  --animate-marquee: marquee var(--duration) infinite linear;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
     }
   }
 }
