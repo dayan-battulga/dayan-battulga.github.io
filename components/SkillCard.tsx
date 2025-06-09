@@ -32,10 +32,8 @@ export default function SkillCard({ title, icon, colors }: SkillCardProps) {
   return (
     <div
       className={cn(
-        'group bg-background relative h-[100px] w-full cursor-pointer rounded-xl border p-3 text-center transition-colors duration-300 hover:bg-[#eeeeee] dark:hover:bg-gray-800',
-        isClicked
-          ? 'border-transparent'
-          : 'dark:border-muted-foreground dark:text-muted-foreground border-gray-100/30 text-gray-100/70'
+        'group bg-background relative h-[100px] w-full cursor-pointer rounded-xl border p-3 text-center transition-colors duration-300 hover:bg-[#eeeeee] dark:border-gray-100 dark:hover:bg-gray-800',
+        isClicked ? 'border-transparent' : 'border-gray-100/30 text-gray-100/70'
       )}
       onClick={handleInteraction}
     >

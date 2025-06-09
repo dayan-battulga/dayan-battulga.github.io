@@ -17,11 +17,7 @@ interface ListLayoutProps {
   initialDisplayPosts?: CoreContent<Blog>[]
 }
 
-export default function ListLayoutWithTags({
-  posts,
-  title,
-  initialDisplayPosts = [],
-}: ListLayoutProps) {
+export default function ListLayout({ posts, title, initialDisplayPosts = [] }: ListLayoutProps) {
   const pathname = usePathname()
   const [hoveredPostPath, setHoveredPostPath] = useState<string | null>(null)
 
@@ -40,17 +36,9 @@ export default function ListLayoutWithTags({
 
                   return (
                     <BlurFade key={path} delay={0.3 + index * 0.1}>
-                      <li className="p-2" onMouseEnter={() => setHoveredPostPath(path)}>
+                      <li className="my-6 w-fit" onMouseEnter={() => setHoveredPostPath(path)}>
                         <Link href={`/${path}`} aria-label={`Read more about ${title}`}>
-                          <article className="flex flex-col space-y-2 xl:space-y-0">
-                            <dl>
-                              <dt className="sr-only">Published on</dt>
-                              <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-100">
-                                <time dateTime={date} suppressHydrationWarning>
-                                  {formatDate(date, siteMetadata.locale)}
-                                </time>
-                              </dd>
-                            </dl>
+                          <article className="relative p-2">
                             <div className="space-y-3">
                               <div>
                                 <h2 className="text-2xl leading-8 font-bold tracking-tight text-gray-900 dark:text-white">
@@ -58,9 +46,22 @@ export default function ListLayoutWithTags({
                                 </h2>
                               </div>
                             </div>
+                            <dl>
+                              <dt className="sr-only">Published on</dt>
+                              <dd className="text-base leading-6 font-medium text-gray-500 dark:text-gray-100">
+                                <time dateTime={date} suppressHydrationWarning>
+                                  {new Date(date).toLocaleDateString(siteMetadata.locale, {
+                                    year: 'numeric',
+                                    month: 'long',
+                                    day: 'numeric',
+                                    timeZone: 'UTC',
+                                  })}
+                                </time>
+                              </dd>
+                            </dl>
                             {isHovered && (
                               <motion.div
-                                className="bg-light-gray-100/30 absolute inset-0 -z-10 rounded-md p-4 dark:bg-gray-100/30"
+                                className="bg-light-gray-100/30 absolute inset-0 -z-10 rounded-md dark:bg-gray-100/30"
                                 layoutId="hover-background"
                                 animate={{ scale: isHovered ? 1.05 : 1 }}
                                 transition={{ type: 'spring', stiffness: 400, damping: 30 }}
