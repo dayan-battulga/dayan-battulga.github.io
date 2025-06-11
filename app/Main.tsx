@@ -6,7 +6,7 @@ import { BlurFade } from '@/components/magicui/blur-fade'
 import MapComponent from '@/components/MapComponent'
 import HeroSection from '@/components/HeroSection'
 import SkillsSection from '@/components/SkillsSection'
-import UISection from '@/components/UISection'
+import AboutMeSection from '@/components/AboutMeSection'
 import ProjectsSection from '@/components/ProjectsSection'
 import BlogSection from '@/components/BlogSection'
 
@@ -31,7 +31,7 @@ export default function Home({ posts }) {
         </BlurFade>
         <BlurFade delay={0.5}>
           <div className="mt-16 mb-4 flex w-full">
-            <UISection />
+            <AboutMeSection />
           </div>
         </BlurFade>
         <BlurFade delay={0.6}>

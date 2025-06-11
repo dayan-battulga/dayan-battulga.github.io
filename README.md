@@ -1,3 +1,3 @@
-Hi! Welcome to my website!
+## Hi! Welcome to my website!
 
-Found a template I really liked from [here](https://github.com/timlrx/tailwind-nextjs-starter-blog)
+Found a template I really liked as a base from [here](https://github.com/timlrx/tailwind-nextjs-starter-blog).

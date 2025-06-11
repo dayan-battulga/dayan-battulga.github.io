@@ -1,10 +1,15 @@
 {
-  "name": "",
-  "short_name": "",
+  "name": "Dayan's Personal Website",
+  "short_name": "Dayan's Website",
   "icons": [
     {
-      "src": "/android-chrome-96x96.png",
-      "sizes": "96x96",
+      "src": "/static/logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/static/logo.png",
+      "sizes": "512x512",
       "type": "image/png"
     }
   ],

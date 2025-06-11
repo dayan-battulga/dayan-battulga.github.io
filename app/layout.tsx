@@ -21,7 +21,6 @@ const space_grotesk = Space_Grotesk({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteMetadata.siteUrl),
   title: {
     default: siteMetadata.title,
     template: `%s | ${siteMetadata.title}`,
@@ -32,15 +31,8 @@ export const metadata: Metadata = {
     description: siteMetadata.description,
     url: './',
     siteName: siteMetadata.title,
-    images: [siteMetadata.socialBanner],
     locale: 'en_US',
     type: 'website',
-  },
-  alternates: {
-    canonical: './',
-    types: {
-      'application/rss+xml': `${siteMetadata.siteUrl}/feed.xml`,
-    },
   },
   robots: {
     index: true,
@@ -64,9 +56,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       className={`${space_grotesk.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/logo.png`} />
-      <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/logo.png`} />
-      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/logo.png`} />
+      <link rel="apple-touch-icon" sizes="76x76" href={`${basePath}/static/logo.png`} />
+      <link rel="icon" type="image/png" sizes="32x32" href={`${basePath}/static/logo.png`} />
+      <link rel="icon" type="image/png" sizes="16x16" href={`${basePath}/static/logo.png`} />
       <link rel="manifest" href={`${basePath}/static/favicons/site.webmanifest`} />
       <link
         rel="mask-icon"
@@ -77,7 +69,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <meta name="theme-color" media="(prefers-color-scheme: light)" content="#fff" />
       <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000" />
       <link rel="alternate" type="application/rss+xml" href={`${basePath}/feed.xml`} />
-      <body className="bg-white pl-[calc(100vw-100%)] text-black antialiased dark:bg-gray-950 dark:text-white">
+      <body className="dark:bg-background bg-white pl-[calc(100vw-100%)] text-black antialiased dark:text-white">
         <ThemeProviders>
           <ThemedBackgroundController />
           <SectionContainer>

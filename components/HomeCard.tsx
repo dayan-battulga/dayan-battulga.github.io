@@ -11,12 +11,12 @@ const HomeCard = ({ title, description, imgSrc, href, color }) => {
   return (
     <Link href={href}>
       <div
-        className="md w-full"
+        className="md mb-6 flex h-full w-full"
         onMouseEnter={() => setIsHovered(true)}
         onMouseLeave={() => setIsHovered(false)}
       >
         <div
-          className={`dark:from-dark-gray-label border-light-gray-100 hover:bg-gray-label h-full transform overflow-hidden rounded-md border-1 bg-gradient-to-b to-white transition-all duration-200 dark:border-gray-100 dark:to-gray-950 ${
+          className={`dark:from-dark-gray-label border-light-gray-100 hover:bg-gray-label dark:to-background flex h-full transform flex-col overflow-hidden rounded-xl border-1 bg-gradient-to-b to-white transition-all duration-200 dark:border-gray-100 ${
             isHovered ? color : 'dark:from-dark-gray-label from-[#eeeeee]'
           }`}
         >
@@ -39,7 +39,7 @@ const HomeCard = ({ title, description, imgSrc, href, color }) => {
               </div>
             )}
           </motion.div>
-          <div className="relative z-10 -mt-16 bg-white p-6 text-left dark:bg-gray-950">
+          <div className="dark:bg-background relative z-10 -mt-16 bg-white px-6 pt-4 pb-6 text-left">
             <h2 className="mb-2 text-xl leading-7 font-bold tracking-tight text-black dark:text-white">
               {title}
             </h2>

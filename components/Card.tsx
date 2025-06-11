@@ -4,9 +4,19 @@ import { useState } from 'react'
 import Image from './Image'
 import Link from './Link'
 import { motion } from 'framer-motion'
-import { Github, Link as LinkIcon } from 'lucide-react'
+import { Github, Link as LinkIcon, GitBranch } from 'lucide-react'
 
-const Card = ({ title, description, imgSrc, href, source, color }) => {
+type CardProps = {
+  title: string
+  description: string
+  imgSrc?: string
+  href?: string
+  source?: string
+  WIP?: boolean
+  color: string
+}
+
+const Card = ({ title, description, imgSrc, href, source, WIP, color }: CardProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
   return (
@@ -16,7 +26,7 @@ const Card = ({ title, description, imgSrc, href, source, color }) => {
       onMouseLeave={() => setIsHovered(false)}
     >
       <div
-        className={`dark:from-dark-gray-label h-full transform overflow-hidden rounded-md bg-gradient-to-b to-white transition-all duration-200 hover:shadow-2xl dark:to-gray-950 ${
+        className={`dark:from-dark-gray-label h-full transform overflow-hidden rounded-md bg-gradient-to-b to-white transition-all duration-200 hover:shadow-lg dark:to-gray-950 dark:hover:shadow-[0_4px_6px_rgba(255,255,255,0.3)] ${
           isHovered ? color : 'dark:from-dark-gray-label from-[#eeeeee]'
         }`}
       >
@@ -45,23 +55,31 @@ const Card = ({ title, description, imgSrc, href, source, color }) => {
           </h2>
           <p className="prose mb-3 max-w-none text-gray-500 dark:text-gray-400">{description}</p>
           <div className="flex space-x-4">
-            {source && (
-              <Link
-                href={source}
-                className="hover:bg-gray-label border-light-gray-100 flex items-center rounded-lg border-1 bg-white px-4 py-2 text-sm font-medium text-black shadow-md transition-colors dark:bg-black dark:text-white dark:hover:bg-gray-800"
-              >
-                <Github className="mr-2 h-4 w-4" />
-                Source
-              </Link>
-            )}
-            {href && (
-              <Link
-                href={href}
-                className="dark:hover:bg-gray-label flex items-center rounded-lg bg-black px-4 py-2 text-sm font-medium text-white shadow-md transition-colors hover:bg-gray-800 dark:bg-white dark:text-black"
-              >
-                <LinkIcon className="mr-2 h-4 w-4" />
-                Visit
-              </Link>
+            {WIP ? (
+              <div className="text-muted-foreground flex items-center rounded-lg border border-dashed border-gray-300 px-4 py-2 text-sm font-medium dark:border-gray-700">
+                Work in Progress
+              </div>
+            ) : (
+              <>
+                {source && (
+                  <Link
+                    href={source}
+                    className="hover:bg-gray-label border-light-gray-100 flex items-center rounded-lg border-1 bg-white px-4 py-2 text-sm font-medium text-black shadow-md transition-colors dark:bg-black dark:text-white dark:hover:bg-gray-800"
+                  >
+                    <Github className="mr-2 h-4 w-4" />
+                    Source
+                  </Link>
+                )}
+                {href && (
+                  <Link
+                    href={href}
+                    className="dark:hover:bg-gray-label flex items-center rounded-lg bg-black px-4 py-2 text-sm font-medium text-white shadow-md transition-colors hover:bg-gray-800 dark:bg-white dark:text-black"
+                  >
+                    <LinkIcon className="mr-2 h-4 w-4" />
+                    Visit
+                  </Link>
+                )}
+              </>
             )}
           </div>
         </div>

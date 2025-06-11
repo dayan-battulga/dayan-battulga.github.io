@@ -41,7 +41,7 @@ export default function HeroSection() {
     <div className="flex h-full w-full flex-col items-center text-center sm:flex-row sm:items-center sm:text-left">
       <div className="relative flex h-[225px] w-full items-center justify-center overflow-hidden sm:w-1/2">
         <Image
-          src="/avatar.png"
+          src="/static/avatar.png"
           alt="Dayan Battulga"
           width={150}
           height={150}

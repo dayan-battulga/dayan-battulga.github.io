@@ -32,6 +32,7 @@ export default function Projects() {
                     imgSrc={d.imgSrc}
                     href={d.href}
                     source={d.source}
+                    WIP={d.WIP}
                     color={cardColors[index % cardColors.length]}
                   />
                 </BlurFade>

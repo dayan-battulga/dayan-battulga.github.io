@@ -20,7 +20,7 @@ export default function BlogSection() {
       <div className="bg-gray-label text-muted-foreground text-s dark:bg-dark-gray-label dark:text-light-gray-100 mb-4 w-fit rounded-md border px-4 py-1 dark:border-gray-100">
         Blogs
       </div>
-      <div className="relative">
+      <div className="relative mb-6">
         <LayoutGroup>
           <ul onMouseLeave={() => setHoveredPostPath(null)}>
             {threeMostRecentPosts.map((post) => {

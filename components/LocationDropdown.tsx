@@ -31,7 +31,7 @@ const LocationDropdown: React.FC<LocationDropdownProps> = ({ onSelectLocation })
         <PopoverTrigger asChild>
           <Button
             variant="outline"
-            className="w-25 justify-center rounded-md bg-white px-4 py-2 text-gray-200 shadow hover:bg-gray-100 dark:bg-black dark:text-white dark:hover:bg-gray-600"
+            className="hover:bg-gray-label w-25 justify-center rounded-md bg-white px-4 py-2 text-gray-200 shadow dark:bg-black dark:text-white dark:hover:bg-gray-600"
             role="combobox"
             aria-expanded={isOpen}
             aria-controls="location-list"
