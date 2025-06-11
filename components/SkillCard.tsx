@@ -16,6 +16,7 @@ export default function SkillCard({ title, icon, colors }: SkillCardProps) {
   const [isClicked, setIsClicked] = useState(false)
   const [mounted, setMounted] = useState(false)
   const { theme } = useTheme()
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
   useEffect(() => {
     setMounted(true)
@@ -61,7 +62,7 @@ export default function SkillCard({ title, icon, colors }: SkillCardProps) {
         <div className="relative mb-2 h-12 w-12">
           {typeof icon === 'string' && icon ? (
             <Image
-              src={icon}
+              src={`${basePath}${icon}`}
               alt={`${title} icon`}
               fill
               className={cn(

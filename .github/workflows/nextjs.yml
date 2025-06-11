@@ -45,6 +45,7 @@ jobs:
           UNOPTIMIZED: 1
           BASE_PATH: /${{ github.event.repository.name }}
           NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_MAPTILER_API_KEY: ${{ secrets.NEXT_PUBLIC_MAPTILER_API_KEY }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
