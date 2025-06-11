@@ -76,7 +76,7 @@ export const generateStaticParams = async () => {
   return allBlogs.map((p) => ({ slug: p.slug }))
 }
 
-export default async function Page({ params }: PageProps) {
+export default function Page({ params }: PageProps) {
   const slug = decodeURI(params.slug)
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
