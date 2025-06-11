@@ -7,6 +7,7 @@ import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
 
 const SMALL_SCREEN_BREAKPOINT = 640 // Tailwind's sm breakpoint, adjust if needed
+const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
 export default function HeroSection() {
   const [radius1, setRadius1] = useState(90)
@@ -41,7 +42,7 @@ export default function HeroSection() {
     <div className="flex h-full w-full flex-col items-center text-center sm:flex-row sm:items-center sm:text-left">
       <div className="relative flex h-[225px] w-full items-center justify-center overflow-hidden sm:w-1/2">
         <Image
-          src="/static/avatar.png"
+          src={`${basePath}/static/avatar.png`}
           alt="Dayan Battulga"
           width={150}
           height={150}
