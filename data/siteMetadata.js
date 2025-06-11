@@ -6,7 +6,7 @@ const siteMetadata = {
   description: 'I like to code and build things.',
   language: 'en-us',
   theme: 'system', // system, dark or light
-  siteUrl: '', //CHANGE
+  siteUrl: 'https://dayan-battulga.github.io/dayan.dev', //CHANGE
   email: 'dayanbattulga8@gmail.com',
   github: 'https://github.com/dayan-battulga',
   linkedin: 'https://www.linkedin.com/in/dayan-battulga',

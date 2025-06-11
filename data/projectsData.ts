@@ -33,7 +33,7 @@ const projectsData: Project[] = [
     title: 'Datamatch@UW',
     description: `Maybe you'll land a date/friend?`,
     imgSrc: '/static/images/projects/datamatch.png',
-    href: 'https://https://datamatch.me/',
+    href: 'https://datamatch.me/',
     source: 'https://github.com/dayan-battulga/bootcamp',
   },
   {
