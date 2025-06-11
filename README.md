@@ -4,6 +4,4 @@ Found a template I really liked as a base from [here](https://github.com/timlrx/
 
 Good afternoon, good evening, and good night!
 
-Best,
-
 Dayan Battulga
