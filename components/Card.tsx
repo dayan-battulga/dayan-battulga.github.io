@@ -16,8 +16,6 @@ type CardProps = {
   color: string
 }
 
-const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
-
 const Card = ({ title, description, imgSrc, href, source, WIP, color }: CardProps) => {
   const [isHovered, setIsHovered] = useState(false)
 
@@ -41,7 +39,7 @@ const Card = ({ title, description, imgSrc, href, source, WIP, color }: CardProp
             <div className="relative m-5">
               <Image
                 alt={title}
-                src={`${basePath}${imgSrc}`}
+                src={imgSrc}
                 className="object-cover object-center"
                 width={0}
                 height={0}
