@@ -9,7 +9,8 @@
 /* Core theme configuration */
 @theme {
   /* Font families */
-  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+  --font-sans:
+    var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
 
   /* Colors */
@@ -406,7 +407,8 @@ html::-webkit-scrollbar {
 }
 
 .aura-rays {
-  -webkit-mask-image: linear-gradient(
+  -webkit-mask-image:
+    linear-gradient(
       45deg,
       transparent 35%,
       rgba(0, 0, 0, 0.9) 40%,
@@ -417,7 +419,8 @@ html::-webkit-scrollbar {
       transparent 65%
     ),
     linear-gradient(rgba(0, 0, 0, 0.05), transparent 75%);
-  mask-image: linear-gradient(
+  mask-image:
+    linear-gradient(
       45deg,
       transparent 35%,
       rgba(0, 0, 0, 0.9) 40%,

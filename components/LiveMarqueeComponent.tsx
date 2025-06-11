@@ -1,25 +1,31 @@
 'use client'
 
 import React from 'react'
+import Image from 'next/image'
 import { cn } from './lib/utils'
 import { Marquee } from './magicui/marquee'
 import { useThreads, useCreateThread } from '@liveblocks/react'
-import { CommentBody, CommentBodyText } from '@liveblocks/core'
+import type { CommentBody, CommentBodyText, CommentBodyParagraph } from '@liveblocks/core'
+
+type ThreadMetadata = {
+  authorName: string
+}
 
 // Helper function to extract plain text from Liveblocks comment body
-function getPlainTextFromCommentBody(body: any): string {
+function getPlainTextFromCommentBody(body: CommentBody): string {
   if (!body || !body.content) {
     return ''
   }
 
   return body.content
-    .map((node: any) => {
-      if (node.type === 'paragraph' && node.children) {
-        return node.children.map((child: any) => child.text || '').join('')
+    .map((node) => {
+      const p = node as CommentBodyParagraph
+      if (p.type === 'paragraph' && p.children) {
+        return p.children.map((child) => (child as CommentBodyText).text || '').join('')
       }
       return ''
     })
-    .join('\n')
+    .join('\\n')
     .trim()
 }
 
@@ -35,7 +41,7 @@ const ReviewCard = ({ img, name, body }: { img: string; name: string; body: stri
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full" width="32" height="32" alt="" src={img} />
+        <Image className="rounded-full" width="32" height="32" alt={name} src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">{name}</figcaption>
         </div>
@@ -84,9 +90,10 @@ export default function LiveMarqueeComponent() {
     threads
       ?.map((thread) => {
         const firstComment = thread.comments?.[0]
-        if (!firstComment) return null
+        if (!firstComment || !firstComment.body) return null
 
-        const authorName = (thread.metadata as any)?.authorName || 'Anonymous'
+        const metadata = thread.metadata as ThreadMetadata
+        const authorName = metadata.authorName || 'Anonymous'
         const img = `https://avatar.vercel.sh/${authorName}`
         const body = getPlainTextFromCommentBody(firstComment.body)
 
