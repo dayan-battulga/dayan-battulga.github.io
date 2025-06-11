@@ -25,10 +25,6 @@ jobs:
           node-version: '20'
           cache: yarn
           registry-url: 'https://registry.npmjs.org'
-      - id: configurepages
-        uses: actions/configure-pages@v5
-        with:
-          static_site_generator: next
       - name: Restore cache
         uses: actions/cache@v4
         with:
@@ -41,7 +37,7 @@ jobs:
         env:
           EXPORT: 1
           UNOPTIMIZED: 1
-          BASE_PATH: ${{ steps.configurepages.outputs.base_path }}
+          BASE_PATH: /${{ github.event.repository.name }}
       - uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
