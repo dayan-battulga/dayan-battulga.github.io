@@ -23,6 +23,7 @@ export const ImageCarousel = ({
 }: ImageCarouselProps) => {
   const [isHovering, setIsHovering] = useState(false)
   const [currentIndex, setCurrentIndex] = useState(0)
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
 
   useEffect(() => {
     if (isHovering && imageSrcs.length > 0) {
@@ -40,7 +41,7 @@ export const ImageCarousel = ({
       onMouseLeave={() => setIsHovering(false)}
     >
       <Image
-        src={mainSrc}
+        src={`${basePath}${mainSrc}`}
         alt={alt}
         fill
         className={cn(
@@ -54,7 +55,7 @@ export const ImageCarousel = ({
       {imageSrcs.map((src, index) => (
         <Image
           key={index}
-          src={src}
+          src={`${basePath}${src}`}
           alt={alt}
           fill
           className={cn(

@@ -71,6 +71,9 @@ module.exports = () => {
     reactStrictMode: true,
     trailingSlash: false,
     pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+    env: {
+      NEXT_PUBLIC_BASE_PATH: basePath || '',
+    },
     eslint: {
       dirs: ['app', 'components', 'layouts', 'scripts'],
     },

@@ -44,6 +44,7 @@ jobs:
           EXPORT: 1
           UNOPTIMIZED: 1
           BASE_PATH: /${{ github.event.repository.name }}
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
