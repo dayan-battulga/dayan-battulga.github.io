@@ -13,6 +13,12 @@ import { Metadata } from 'next'
 import siteMetadata from '@/data/siteMetadata'
 import { notFound } from 'next/navigation'
 
+type PageProps = {
+  params: {
+    slug: string
+  }
+}
+
 const defaultLayout = 'PostLayout'
 const layouts = {
   PostSimple,
@@ -70,7 +76,7 @@ export const generateStaticParams = async () => {
   return allBlogs.map((p) => ({ slug: p.slug }))
 }
 
-export default async function Page({ params }: { params: { slug: string } }) {
+export default async function Page({ params }: PageProps) {
   const slug = decodeURI(params.slug)
   // Filter out drafts in production
   const sortedCoreContents = allCoreContent(sortPosts(allBlogs))
