@@ -5,6 +5,7 @@ import { OrbitingCircles } from '@/components/magicui/orbiting-circles'
 import { Turtle, Cat, Hamburger, Youtube, Volleyball, BookMarked, ShoppingCart } from 'lucide-react'
 import Image from 'next/image'
 import siteMetadata from '@/data/siteMetadata'
+import SocialIcon from './social-icons'
 
 const SMALL_SCREEN_BREAKPOINT = 640 // Tailwind's sm breakpoint, adjust if needed
 const basePath = process.env.NEXT_PUBLIC_BASE_PATH || ''
@@ -62,6 +63,11 @@ export default function HeroSection() {
       <div className="w-full sm:w-1/2">
         <h1 className="text-4xl font-bold tracking-tight">{siteMetadata.author}</h1>
         <p className="text-muted-foreground mt-4 text-lg">{siteMetadata.description}</p>
+        <div className="mt-3 flex flex-row items-center justify-start space-x-4">
+          <SocialIcon kind="mail" href={`mailto:${siteMetadata.email}`} size={7} />
+          <SocialIcon kind="github" href={siteMetadata.github} size={7} />
+          <SocialIcon kind="linkedin" href={siteMetadata.linkedin} size={7} />
+        </div>
       </div>
     </div>
   )
