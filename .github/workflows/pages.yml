@@ -24,6 +24,7 @@ jobs:
         with:
           node-version: '20'
           cache: yarn
+          registry-url: 'https://registry.npmjs.org'
       - id: configurepages
         uses: actions/configure-pages@v5
       - name: Restore cache
